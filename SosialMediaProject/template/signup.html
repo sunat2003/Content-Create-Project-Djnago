@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block headblock %}
+{% endblock%}
+
+{% block content %}
+<div class="container d-flex align-items-center justify-content-center mt-5">
+    <form method="post" class="p-4" style="box-shadow:1px 1px 10px gray; border-radius:10px; width:30%">
+        <h3>Sign up</h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>I alraedy have account <span><a href="/accounts/login">login here</a></span></p>
+        <button class="btn btn-primary" type="submit">Sign Up</button>
+    </form>
+</div>
+{% endblock %}

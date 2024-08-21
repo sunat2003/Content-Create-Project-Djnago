@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block headblock %}
+{% endblock%}
+
+{% block content %}
+<h1 class="m-5">All Posts</h1>
+<button class="btn btn-primary text-center m-5"><a href="/insert" class="text-white">Create Post</a></button>
+<div class="container d-flex flex-wrap justify-content-center">
+    {% if user_post %}
+    {% for post in user_post %}
+    <div class="card m-4" style="width: 18rem;">
+        <img src="{{post.photo.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{post.user.username}}</h5>
+            <p class="card-text">{{post.text}}</p>
+            {% if post.user == user %}
+            <a href="/update/{{post.id}}" class="btn btn-primary">Edit</a>
+            <a href="/delete/{{post.id}}" class="btn btn-danger">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Post not found</p>
+    {% endif %}
+</div>
+{% endblock %}

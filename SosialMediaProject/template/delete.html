@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block headblock %}
+{% endblock%}
+
+{% block content %}
+<h1>Are you sure to delete</h1>
+<form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Yes</button>
+    <button class="btn btn-secondary" type="button"><a href="/">Cancel</a></button>
+</form>
+
+{% endblock %}
